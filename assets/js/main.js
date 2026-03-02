@@ -256,6 +256,12 @@ function detalles() {
 //// FUNCIÓN PRINCIPAL
 //// =============================
 function dibujarMoto() {
+
+  ctx.save();
+
+  // 👇 AJUSTA ESTOS VALORES SI QUIERES
+  ctx.translate(-80, -60);
+
   ruedas();
   suspension();
   chasis();
@@ -267,6 +273,8 @@ function dibujarMoto() {
   frente();
   manubrio();
   detalles();
+
+  ctx.restore();
 }
 
 dibujarMoto();
