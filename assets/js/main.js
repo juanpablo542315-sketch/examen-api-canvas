@@ -259,8 +259,37 @@ function dibujarMoto() {
 
   ctx.save();
 
-  // 👇 AJUSTA ESTOS VALORES SI QUIERES
-  ctx.translate(-80, -60);
+  // =============================
+  // FONDO PROFESIONAL DEL CANVAS
+  // =============================
+  const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  grad.addColorStop(0, "#f8f9fa");
+  grad.addColorStop(1, "#e9ecef");
+
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // =============================
+  // SOMBRA EN EL SUELO
+  // =============================
+  ctx.fillStyle = "rgba(0,0,0,0.15)";
+  ctx.beginPath();
+  ctx.ellipse(420, 330, 260, 35, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // =============================
+  // CENTRADO AUTOMÁTICO
+  // =============================
+
+  const centroX = canvas.width / 2;
+  const centroY = canvas.height / 2;
+
+  // Ajuste fino para que quede perfecta
+  ctx.translate(centroX - 420, centroY - 230);
+
+  // =============================
+  // DIBUJO COMPLETO
+  // =============================
 
   ruedas();
   suspension();
