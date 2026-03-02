@@ -14,41 +14,51 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body class="bg-light">
 
 <!-- ===== NAVBAR ===== -->
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark shadow">
   <div class="container-fluid">
-    <span class="navbar-brand">Moto BMW Canvas 2D</span>
+    <span class="navbar-brand fw-bold">Moto BMW Canvas 2D</span>
     <span class="text-white">Programador: Juan Pablo Hernández</span>
   </div>
 </nav>
 
 <!-- ===== CONTENIDO ===== -->
-<div class="container my-4">
-  <div class="row">
+<div class="container my-5">
 
-  <!-- IZQUIERDA: CANVAS -->
-<div class="col-md-6 text-center d-flex flex-column align-items-center">
-  <h5>Dibujo por programación</h5>
-  <div class="p-3 bg-light rounded shadow-sm">
-    <canvas id="motoCanvas" width="650" height="330"></canvas>
-  </div>
-</div>
+  <div class="row g-4">
 
-<!-- DERECHA: IMAGEN ORIGINAL -->
-<div class="col-md-6 text-center d-flex flex-column align-items-center">
-  <h5>Imagen original</h5>
-  <div class="p-3 bg-light rounded shadow-sm">
-    <img src="assets/img/imagen.jpg" class="img-fluid rounded">
+    <!-- IZQUIERDA: CANVAS -->
+    <div class="col-md-6 text-center d-flex flex-column align-items-center">
+      
+      <h5 class="mb-3">Dibujo por programación</h5>
+
+      <div class="p-4 bg-white rounded shadow">
+        <canvas id="motoCanvas" width="650" height="330"></canvas>
+      </div>
+
+    </div>
+
+    <!-- DERECHA: IMAGEN ORIGINAL -->
+    <div class="col-md-6 text-center d-flex flex-column align-items-center">
+      
+      <h5 class="mb-3">Imagen original</h5>
+
+      <div class="p-4 bg-white rounded shadow">
+        <img src="assets/img/imagen.jpg" class="img-fluid rounded">
+      </div>
+
+    </div>
+
   </div>
-</div>
+
 </div>
 
 <!-- ===== FOOTER ===== -->
-<footer class="bg-dark text-white text-center py-3">
-  <p>Graficación por Computadora — Canvas 2D</p>
-  <p>Juan Pablo Hernández | 2026</p>
+<footer class="bg-dark text-white text-center py-3 shadow mt-5">
+  <p class="mb-1">Graficación por Computadora — Canvas 2D</p>
+  <p class="mb-0">Juan Pablo Hernández | 2026</p>
 </footer>
 
 <script src="assets/js/main.js"></script>
