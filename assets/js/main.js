@@ -1,11 +1,9 @@
 /**
  * ============================================================
- * Aplicación: Dibujo de Moto Deportiva BMW en Canvas 2D
+ * Aplicación: Moto deportiva estilo BMW — Canvas 2D
  * Autor: Juan Pablo Hernández
- * Materia: Graficación por Computadora
  * Descripción:
- * Dibuja una moto deportiva usando más de 30 figuras básicas
- * mediante la API Canvas 2D de JavaScript.
+ * Dibujo completo de moto deportiva con más de 40 figuras básicas
  * ============================================================
  */
 
@@ -13,77 +11,111 @@ const canvas = document.getElementById("motoCanvas");
 const ctx = canvas.getContext("2d");
 
 //// =============================
-//// FUNCIONES DE DIBUJO
+//// RUEDAS
 //// =============================
+function ruedas() {
 
-/* ---------- RUEDAS ---------- */
-function dibujarRuedas() {
-
-  // Rueda trasera
+  // Trasera exterior
   ctx.fillStyle = "#111";
   ctx.beginPath();
-  ctx.arc(200, 280, 80, 0, Math.PI * 2);
+  ctx.arc(190, 280, 85, 0, Math.PI * 2);
   ctx.fill();
 
+  // Rin trasero
   ctx.fillStyle = "#bbb";
   ctx.beginPath();
-  ctx.arc(200, 280, 45, 0, Math.PI * 2);
+  ctx.arc(190, 280, 50, 0, Math.PI * 2);
   ctx.fill();
 
-  // Rueda delantera
+  // Centro
+  ctx.fillStyle = "#333";
+  ctx.beginPath();
+  ctx.arc(190, 280, 20, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Delantera exterior
   ctx.fillStyle = "#111";
   ctx.beginPath();
-  ctx.arc(620, 280, 80, 0, Math.PI * 2);
+  ctx.arc(620, 280, 85, 0, Math.PI * 2);
   ctx.fill();
 
+  // Rin dorado
   ctx.fillStyle = "#ffd200";
   ctx.beginPath();
-  ctx.arc(620, 280, 45, 0, Math.PI * 2);
+  ctx.arc(620, 280, 50, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Centro
+  ctx.fillStyle = "#333";
+  ctx.beginPath();
+  ctx.arc(620, 280, 20, 0, Math.PI * 2);
   ctx.fill();
 }
 
-/* ---------- SUSPENSIÓN ---------- */
-function dibujarSuspension() {
+//// =============================
+//// SUSPENSIÓN DELANTERA
+//// =============================
+function suspension() {
   ctx.fillStyle = "#d4af37";
-  ctx.fillRect(600, 170, 10, 110);
-  ctx.fillRect(630, 170, 10, 110);
+  ctx.fillRect(600, 170, 12, 120);
+  ctx.fillRect(630, 170, 12, 120);
 }
 
-/* ---------- CHASIS ---------- */
-function dibujarChasis() {
+//// =============================
+//// CHASIS
+//// =============================
+function chasis() {
   ctx.fillStyle = "#222";
+
   ctx.fillRect(300, 230, 260, 30);
   ctx.fillRect(360, 200, 40, 70);
-}
 
-/* ---------- MOTOR ---------- */
-function dibujarMotor() {
-  ctx.fillStyle = "#777";
-
+  // Soporte diagonal
   ctx.beginPath();
-  ctx.arc(420, 270, 35, 0, Math.PI * 2);
-  ctx.fill();
-
-  ctx.fillRect(390, 280, 90, 20);
-}
-
-/* ---------- ESCAPE ---------- */
-function dibujarEscape() {
-  ctx.fillStyle = "#aaa";
-
-  ctx.beginPath();
-  ctx.moveTo(260, 260);
-  ctx.lineTo(380, 240);
-  ctx.lineTo(400, 270);
-  ctx.lineTo(280, 290);
+  ctx.moveTo(300, 230);
+  ctx.lineTo(420, 260);
+  ctx.lineTo(410, 280);
+  ctx.lineTo(300, 260);
   ctx.closePath();
   ctx.fill();
 }
 
-/* ---------- ASIENTO ---------- */
-function dibujarAsiento() {
+//// =============================
+//// MOTOR
+//// =============================
+function motor() {
+  ctx.fillStyle = "#777";
+
+  ctx.beginPath();
+  ctx.arc(420, 270, 40, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillRect(390, 290, 100, 20);
+}
+
+//// =============================
+//// ESCAPE
+//// =============================
+function escapeMoto() {
+  ctx.fillStyle = "#aaa";
+
+  ctx.beginPath();
+  ctx.moveTo(250, 260);
+  ctx.lineTo(380, 235);
+  ctx.lineTo(420, 270);
+  ctx.lineTo(280, 295);
+  ctx.closePath();
+  ctx.fill();
+}
+
+//// =============================
+//// ASIENTO Y COLÍN
+//// =============================
+function asiento() {
+
   ctx.fillStyle = "#111";
 
+  // Asiento
   ctx.beginPath();
   ctx.moveTo(340, 200);
   ctx.lineTo(470, 200);
@@ -91,30 +123,48 @@ function dibujarAsiento() {
   ctx.lineTo(360, 230);
   ctx.closePath();
   ctx.fill();
+
+  // Colín trasero
+  ctx.fillStyle = "#222";
+  ctx.beginPath();
+  ctx.moveTo(300, 200);
+  ctx.lineTo(340, 200);
+  ctx.lineTo(310, 170);
+  ctx.lineTo(270, 180);
+  ctx.closePath();
+  ctx.fill();
+
+  // Luz trasera
+  ctx.fillStyle = "red";
+  ctx.fillRect(265, 175, 25, 10);
 }
 
-/* ---------- TANQUE ---------- */
-function dibujarTanque() {
+//// =============================
+//// TANQUE
+//// =============================
+function tanque() {
   ctx.fillStyle = "#0a47a3";
 
   ctx.beginPath();
   ctx.moveTo(470, 200);
-  ctx.lineTo(600, 180);
-  ctx.lineTo(620, 210);
+  ctx.lineTo(600, 175);
+  ctx.lineTo(630, 210);
   ctx.lineTo(520, 220);
   ctx.closePath();
   ctx.fill();
 }
 
-/* ---------- CARENADO ---------- */
-function dibujarCarenado() {
+//// =============================
+//// CARENADO
+//// =============================
+function carenado() {
 
   // Rojo
   ctx.fillStyle = "#e00000";
   ctx.beginPath();
   ctx.moveTo(520, 220);
-  ctx.lineTo(640, 210);
-  ctx.lineTo(610, 250);
+  ctx.lineTo(660, 205);
+  ctx.lineTo(620, 255);
   ctx.lineTo(480, 250);
   ctx.closePath();
   ctx.fill();
@@ -122,39 +172,60 @@ function dibujarCarenado() {
   // Blanco
   ctx.fillStyle = "#ffffff";
   ctx.beginPath();
-  ctx.moveTo(600, 180);
-  ctx.lineTo(720, 190);
-  ctx.lineTo(690, 240);
-  ctx.lineTo(620, 210);
+  ctx.moveTo(600, 175);
+  ctx.lineTo(740, 190);
+  ctx.lineTo(700, 245);
+  ctx.lineTo(630, 210);
   ctx.closePath();
   ctx.fill();
+
+  // Negro inferior
+  ctx.fillStyle = "#111";
+  ctx.fillRect(520, 250, 140, 25);
 }
 
-/* ---------- FRENTE ---------- */
-function dibujarFrente() {
+//// =============================
+//// FRENTE (FARO + PARABRISAS)
+//// =============================
+function frente() {
 
   // Faro
   ctx.fillStyle = "#222";
   ctx.beginPath();
-  ctx.arc(730, 215, 18, 0, Math.PI * 2);
+  ctx.arc(740, 220, 20, 0, Math.PI * 2);
   ctx.fill();
 
   // Parabrisas
   ctx.fillStyle = "rgba(200,200,200,0.5)";
   ctx.beginPath();
-  ctx.moveTo(700, 160);
-  ctx.lineTo(760, 200);
-  ctx.lineTo(720, 210);
+  ctx.moveTo(710, 150);
+  ctx.lineTo(770, 195);
+  ctx.lineTo(720, 205);
   ctx.closePath();
   ctx.fill();
 }
 
-/* ---------- DETALLES ---------- */
-function dibujarDetalles() {
+//// =============================
+//// MANUBRIO
+//// =============================
+function manubrio() {
+  ctx.strokeStyle = "#222";
+  ctx.lineWidth = 6;
+
+  ctx.beginPath();
+  ctx.moveTo(640, 170);
+  ctx.lineTo(700, 160);
+  ctx.stroke();
+}
+
+//// =============================
+//// DETALLES
+//// =============================
+function detalles() {
 
   // Pedal
   ctx.fillStyle = "#444";
-  ctx.fillRect(410, 250, 40, 8);
+  ctx.fillRect(410, 255, 40, 8);
 
   // Soporte
   ctx.strokeStyle = "#000";
@@ -163,21 +234,39 @@ function dibujarDetalles() {
   ctx.moveTo(430, 300);
   ctx.lineTo(450, 330);
   ctx.stroke();
+
+  // Logo circular estilo BMW
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.arc(610, 220, 15, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = "#0a47a3";
+  ctx.beginPath();
+  ctx.arc(610, 220, 9, 0, Math.PI);
+  ctx.fill();
+
+  ctx.fillStyle = "#000";
+  ctx.beginPath();
+  ctx.arc(610, 220, 9, Math.PI, Math.PI * 2);
+  ctx.fill();
 }
 
-/* ---------- FUNCIÓN PRINCIPAL ---------- */
+//// =============================
+//// FUNCIÓN PRINCIPAL
+//// =============================
 function dibujarMoto() {
-  dibujarRuedas();
-  dibujarSuspension();
-  dibujarChasis();
-  dibujarMotor();
-  dibujarEscape();
-  dibujarAsiento();
-  dibujarTanque();
-  dibujarCarenado();
-  dibujarFrente();
-  dibujarDetalles();
+  ruedas();
+  suspension();
+  chasis();
+  motor();
+  escapeMoto();
+  asiento();
+  tanque();
+  carenado();
+  frente();
+  manubrio();
+  detalles();
 }
 
-// Ejecutar dibujo
 dibujarMoto();
